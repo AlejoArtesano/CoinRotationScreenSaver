@@ -51,6 +51,8 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     self.coinLayer = layer
     
     adjustLayerSize()
+    
+    addRotationAnimation()
   }
 
   
@@ -75,10 +77,23 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     // Центрируем слой
     layer.frame = CGRect(x: bounds.midX - layerWidth / 2, y: bounds.midY - layerHeight / 2, width: layerWidth, height: layerHeight)
   }
+  
 
+  // Добавляем анимацию вращения
+  private func addRotationAnimation() {
+    guard let layer = self.coinLayer else { return }
+    
+    let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
+    rotationAnimation.fromValue = 0 // Начальное значение угла вращения
+    rotationAnimation.toValue = CGFloat.pi * 2 // Конечное значение угла (полный оборот)
+    rotationAnimation.duration = 4 // Длительность анимации в секундах для полного оборота
+    rotationAnimation.repeatCount = .infinity // Анимация будет повторяться бесконечно
+    
+    layer.add(rotationAnimation, forKey: "rotationAnimation")
+  }
 
   
-  
+
   // Метод, вызываемый для анимации Screen Saver
   override func animateOneFrame() {
     super.animateOneFrame()
