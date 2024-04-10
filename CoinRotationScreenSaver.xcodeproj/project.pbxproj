@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5BEB07EC2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */; };
+		5BEB07F22BC722E3001B89B6 /* BitcoinImage-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEB07F12BC722E3001B89B6 /* BitcoinImage-1024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BEB07DF2BC6FB5D001B89B6 /* CoinRotationScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinRotationScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRotationScreenSaverView.swift; sourceTree = "<group>"; };
 		5BEB07ED2BC702A5001B89B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5BEB07F12BC722E3001B89B6 /* BitcoinImage-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BitcoinImage-1024.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +32,7 @@
 		5BEB07D52BC6FB5D001B89B6 = {
 			isa = PBXGroup;
 			children = (
+				5BEB07F32BC725EF001B89B6 /* Assets */,
 				5BEB07ED2BC702A5001B89B6 /* README.md */,
 				5BEB07E12BC6FB5D001B89B6 /* CoinRotationScreenSaver */,
 				5BEB07E02BC6FB5D001B89B6 /* Products */,
@@ -50,6 +53,14 @@
 				5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */,
 			);
 			path = CoinRotationScreenSaver;
+			sourceTree = "<group>";
+		};
+		5BEB07F32BC725EF001B89B6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5BEB07F12BC722E3001B89B6 /* BitcoinImage-1024.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEB07F22BC722E3001B89B6 /* BitcoinImage-1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
