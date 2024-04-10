@@ -45,16 +45,37 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     
     let layer = CALayer()
     layer.contents = coinImage
-    layer.frame = CGRect(x: 0, y: 0, width: coinImage.size.width, height: coinImage.size.height)
-    layer.contentsGravity = .resizeAspect
-    self.wantsLayer = true // Указываем, что view будет использовать слой
-    self.layer = CALayer() // Создаем корневой слой, если он еще не был создан
-    self.layer?.addSublayer(layer) // Добавляем слой с монетой в корневой слой
+    layer.contentsGravity = .resizeAspect // Указываем, как содержимое должно масштабироваться внутри слоя
+    self.layer = self.layer ?? CALayer() // Убедитесь, что у view есть корневой слой
+    self.layer?.addSublayer(layer)
     self.coinLayer = layer
     
-    // Центрирование слоя монеты
-    layer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+    adjustLayerSize()
   }
+
+  
+  // Расчет адаптивного размера и позиционирования слоя
+  private func adjustLayerSize() {
+    guard let layer = self.coinLayer, let coinImage = self.coinImage else { return }
+    
+    // Рассчитываем размеры, чтобы изображение полностью поместилось в экран, сохраняя пропорции
+    let aspectRatio = coinImage.size.width / coinImage.size.height
+    var layerWidth: CGFloat
+    var layerHeight: CGFloat
+    
+    // Предпочтение масштабированию по ширине или высоте в зависимости от соотношения сторон
+    if aspectRatio > 1 { // Шире, чем высоко
+      layerWidth = min(bounds.width, coinImage.size.width)
+      layerHeight = layerWidth / aspectRatio
+    } else { // Выше, чем шире
+      layerHeight = min(bounds.height, coinImage.size.height)
+      layerWidth = layerHeight * aspectRatio
+    }
+    
+    // Центрируем слой
+    layer.frame = CGRect(x: bounds.midX - layerWidth / 2, y: bounds.midY - layerHeight / 2, width: layerWidth, height: layerHeight)
+  }
+
 
   
   
