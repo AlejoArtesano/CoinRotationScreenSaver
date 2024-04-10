@@ -10,18 +10,23 @@ import Cocoa
 
 class CoinRotationScreenSaverView: ScreenSaverView {
   
+  var coinLayer: CALayer?
   var coinImage: NSImage?
   
   // Инициализатор для создания view программно
   override init?(frame: NSRect, isPreview: Bool) {
     super.init(frame: frame, isPreview: isPreview)
+    
     self.coinImage = self.loadImage()
+    setupCoinLayer() // Настраиваем слой с монетой
   }
   
   // Инициализатор для создания view из Interface Builder
   required init?(coder: NSCoder) {
     super.init(coder: coder)
+    
     self.coinImage = self.loadImage()
+    setupCoinLayer() // Настраиваем слой с монетой
   }
   
   // Метод для загрузки изображения
@@ -34,58 +39,30 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     return image
   }
   
-  // Метод для отрисовки содержимого Screen Saver
-  override func draw(_ rect: NSRect) {
-    super.draw(rect)
+  
+  private func setupCoinLayer() {
+    guard let coinImage = self.coinImage else { return }
     
-    guard let image = self.coinImage else {
-      NSColor.black.setFill()
-      rect.fill()
-      return
-    }
+    let layer = CALayer()
+    layer.contents = coinImage
+    layer.frame = CGRect(x: 0, y: 0, width: coinImage.size.width, height: coinImage.size.height)
+    layer.contentsGravity = .resizeAspect
+    self.wantsLayer = true // Указываем, что view будет использовать слой
+    self.layer = CALayer() // Создаем корневой слой, если он еще не был создан
+    self.layer?.addSublayer(layer) // Добавляем слой с монетой в корневой слой
+    self.coinLayer = layer
     
-    let imageSize = image.size
-    var newImageSize: CGSize = imageSize
-    
-    // Соотношение сторон изображения
-    let imageAspectRatio = imageSize.width / imageSize.height
-    
-    // Соотношение сторон области отображения
-    let viewAspectRatio = rect.width / rect.height
-    
-    // Масштабирование изображения
-    if imageAspectRatio > viewAspectRatio {
-      // Если ширина изображения относительно его высоты больше, чем у области отображения,
-      // Масштабируем по ширине
-      newImageSize.width = rect.width
-      newImageSize.height = rect.width / imageAspectRatio
-    } else {
-      // В противном случае масштабируем по высоте
-      newImageSize.height = rect.height
-      newImageSize.width = rect.height * imageAspectRatio
-    }
-    
-    // Расчет положения для центрирования изображения
-    let imageRect = CGRect(
-      x: rect.midX - newImageSize.width / 2,
-      y: rect.midY - newImageSize.height / 2,
-      width: newImageSize.width,
-      height: newImageSize.height
-    )
-    
-    // Отрисовка изображения
-    image.draw(in: imageRect, from: NSRect.zero, operation: .sourceOver, fraction: 1.0)
+    // Центрирование слоя монеты
+    layer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
   }
-
 
   
   
   // Метод, вызываемый для анимации Screen Saver
   override func animateOneFrame() {
     super.animateOneFrame()
-    // Здесь можно добавить логику анимации
+
     setNeedsDisplay(bounds) // Перерисовка для обновления содержимого
   }
-  
-  // Дополнительные методы, если необходимо...
+
 }

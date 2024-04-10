@@ -32,8 +32,8 @@
 		5BEB07D52BC6FB5D001B89B6 = {
 			isa = PBXGroup;
 			children = (
-				5BEB07F32BC725EF001B89B6 /* Assets */,
 				5BEB07ED2BC702A5001B89B6 /* README.md */,
+				5BEB07F32BC725EF001B89B6 /* Assets */,
 				5BEB07E12BC6FB5D001B89B6 /* CoinRotationScreenSaver */,
 				5BEB07E02BC6FB5D001B89B6 /* Products */,
 			);
