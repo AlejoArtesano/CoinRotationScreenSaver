@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BEB07E32BC6FB5D001B89B6 /* CoinRotationScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BEB07E22BC6FB5D001B89B6 /* CoinRotationScreenSaverView.h */; };
-		5BEB07E52BC6FB5D001B89B6 /* CoinRotationScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07E42BC6FB5D001B89B6 /* CoinRotationScreenSaverView.m */; };
+		5BEB07EC2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BEB07DF2BC6FB5D001B89B6 /* CoinRotationScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinRotationScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BEB07E22BC6FB5D001B89B6 /* CoinRotationScreenSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoinRotationScreenSaverView.h; sourceTree = "<group>"; };
-		5BEB07E42BC6FB5D001B89B6 /* CoinRotationScreenSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoinRotationScreenSaverView.m; sourceTree = "<group>"; };
+		5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRotationScreenSaverView.swift; sourceTree = "<group>"; };
+		5BEB07ED2BC702A5001B89B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +30,7 @@
 		5BEB07D52BC6FB5D001B89B6 = {
 			isa = PBXGroup;
 			children = (
+				5BEB07ED2BC702A5001B89B6 /* README.md */,
 				5BEB07E12BC6FB5D001B89B6 /* CoinRotationScreenSaver */,
 				5BEB07E02BC6FB5D001B89B6 /* Products */,
 			);
@@ -47,8 +47,7 @@
 		5BEB07E12BC6FB5D001B89B6 /* CoinRotationScreenSaver */ = {
 			isa = PBXGroup;
 			children = (
-				5BEB07E22BC6FB5D001B89B6 /* CoinRotationScreenSaverView.h */,
-				5BEB07E42BC6FB5D001B89B6 /* CoinRotationScreenSaverView.m */,
+				5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */,
 			);
 			path = CoinRotationScreenSaver;
 			sourceTree = "<group>";
@@ -60,7 +59,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BEB07E32BC6FB5D001B89B6 /* CoinRotationScreenSaverView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +94,7 @@
 				TargetAttributes = {
 					5BEB07DE2BC6FB5D001B89B6 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -132,7 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BEB07E52BC6FB5D001B89B6 /* CoinRotationScreenSaverView.m in Sources */,
+				5BEB07EC2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +252,7 @@
 		5BEB07E92BC6FB5D001B89B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -260,10 +260,17 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = CoinRotationScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.artesanoalejo.CoinRotationScreenSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -271,6 +278,7 @@
 		5BEB07EA2BC6FB5D001B89B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -278,10 +286,16 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = CoinRotationScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.artesanoalejo.CoinRotationScreenSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
