@@ -28,8 +28,9 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   // Инициализатор для создания view программно
   override init?(frame: NSRect, isPreview: Bool) {
     super.init(frame: frame, isPreview: isPreview)
-    
-    self.coinImage = self.loadImage()
+    self.wantsLayer = true // Указывает, что view использует layer-backed rendering.
+    self.coinImage = ImageResourceManager.shared.loadImage(named: "BitcoinImage-1024",
+                                                           withExtension: "png")
     
     saveRotationSpeed(0.25)
     setupCoinLayer() // Настраиваем слой с монетой
@@ -38,19 +39,8 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   // Инициализатор для создания view из Interface Builder
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    
-    self.coinImage = self.loadImage()
+
     setupCoinLayer() // Настраиваем слой с монетой
-  }
-  
-  // Метод для загрузки изображения
-  private func loadImage() -> NSImage? {
-    guard let imagePath = Bundle(for: type(of: self)).path(forResource: "BitcoinImage-1024", ofType: "png"),
-          let image = NSImage(contentsOfFile: imagePath) else {
-            print("Изображение монеты не найдено.")
-            return nil
-          }
-    return image
   }
   
   
@@ -65,7 +55,6 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     self.coinLayer = layer
     
     adjustLayerSize()
-    
     addRotationAnimation()
   }
 
@@ -88,7 +77,8 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     }
     
     // Центрируем слой
-    layer.frame = CGRect(x: bounds.midX - layerWidth / 2, y: bounds.midY - layerHeight / 2, width: layerWidth, height: layerHeight)
+    layer.frame = CGRect(x: bounds.midX - layerWidth / 2, y: bounds.midY - layerHeight / 2,
+                         width: layerWidth, height: layerHeight)
   }
   
 
