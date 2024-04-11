@@ -14,17 +14,6 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   var coinImage: NSImage?
   
   
-  func saveRotationSpeed(_ speed: Float) {
-    UserDefaults.standard.set(speed, forKey: "rotationSpeed")
-  }
-
-  func loadRotationSpeed() -> Float {
-    // Загружаем значение скорости из UserDefaults
-    // Если значение не найдено, возвращаем значение по умолчанию, например, 2.0
-    return UserDefaults.standard.float(forKey: "rotationSpeed") == 0 ? 2.0 : UserDefaults.standard.float(forKey: "rotationSpeed")
-  }
-
-  
   // Инициализатор для создания view программно
   override init?(frame: NSRect, isPreview: Bool) {
     super.init(frame: frame, isPreview: isPreview)
@@ -32,7 +21,9 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     self.coinImage = ImageResourceManager.shared.loadImage(named: "BitcoinImage-1024",
                                                            withExtension: "png")
     
-    saveRotationSpeed(0.25)
+    let speed = ScreenSaverSettings.shared.loadRotationSpeed()
+    ScreenSaverSettings.shared.saveRotationSpeed(speed) // Теперь это будет использовать новый класс
+    
     setupCoinLayer() // Настраиваем слой с монетой
   }
   
@@ -86,7 +77,7 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   private func addRotationAnimation() {
     guard let layer = self.coinLayer else { return }
     
-    let rotationSpeed = loadRotationSpeed()
+    let rotationSpeed = ScreenSaverSettings.shared.loadRotationSpeed()
     let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
     rotationAnimation.fromValue = 0 // Начальное значение угла вращения
     rotationAnimation.toValue = CGFloat.pi * 2 // Конечное значение угла (полный оборот)

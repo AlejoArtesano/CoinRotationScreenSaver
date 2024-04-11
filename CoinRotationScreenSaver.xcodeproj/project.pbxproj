@@ -10,6 +10,7 @@
 		5BEB07EC2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */; };
 		5BEB07F22BC722E3001B89B6 /* BitcoinImage-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEB07F12BC722E3001B89B6 /* BitcoinImage-1024.png */; };
 		5BEB07F92BC7FA4D001B89B6 /* ImageResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07F82BC7FA4D001B89B6 /* ImageResourceManager.swift */; };
+		5BEB07FB2BC80800001B89B6 /* ScreenSaverSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB07FA2BC80800001B89B6 /* ScreenSaverSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		5BEB07ED2BC702A5001B89B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BEB07F12BC722E3001B89B6 /* BitcoinImage-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BitcoinImage-1024.png"; sourceTree = "<group>"; };
 		5BEB07F82BC7FA4D001B89B6 /* ImageResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResourceManager.swift; sourceTree = "<group>"; };
+		5BEB07FA2BC80800001B89B6 /* ScreenSaverSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSaverSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEB07EB2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift */,
+				5BEB07FA2BC80800001B89B6 /* ScreenSaverSettings.swift */,
 				5BEB07F82BC7FA4D001B89B6 /* ImageResourceManager.swift */,
 			);
 			path = CoinRotationScreenSaver;
@@ -148,6 +151,7 @@
 			files = (
 				5BEB07EC2BC6FE20001B89B6 /* CoinRotationScreenSaverView.swift in Sources */,
 				5BEB07F92BC7FA4D001B89B6 /* ImageResourceManager.swift in Sources */,
+				5BEB07FB2BC80800001B89B6 /* ScreenSaverSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
