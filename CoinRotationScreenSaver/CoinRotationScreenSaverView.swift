@@ -13,11 +13,25 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   var coinLayer: CALayer?
   var coinImage: NSImage?
   
+  
+  func saveRotationSpeed(_ speed: Float) {
+    UserDefaults.standard.set(speed, forKey: "rotationSpeed")
+  }
+
+  func loadRotationSpeed() -> Float {
+    // Загружаем значение скорости из UserDefaults
+    // Если значение не найдено, возвращаем значение по умолчанию, например, 2.0
+    return UserDefaults.standard.float(forKey: "rotationSpeed") == 0 ? 2.0 : UserDefaults.standard.float(forKey: "rotationSpeed")
+  }
+
+  
   // Инициализатор для создания view программно
   override init?(frame: NSRect, isPreview: Bool) {
     super.init(frame: frame, isPreview: isPreview)
     
     self.coinImage = self.loadImage()
+    
+    saveRotationSpeed(0.25)
     setupCoinLayer() // Настраиваем слой с монетой
   }
   
@@ -55,7 +69,6 @@ class CoinRotationScreenSaverView: ScreenSaverView {
     addRotationAnimation()
   }
 
-  
   // Расчет адаптивного размера и позиционирования слоя
   private func adjustLayerSize() {
     guard let layer = self.coinLayer, let coinImage = self.coinImage else { return }
@@ -83,22 +96,21 @@ class CoinRotationScreenSaverView: ScreenSaverView {
   private func addRotationAnimation() {
     guard let layer = self.coinLayer else { return }
     
+    let rotationSpeed = loadRotationSpeed()
     let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
     rotationAnimation.fromValue = 0 // Начальное значение угла вращения
     rotationAnimation.toValue = CGFloat.pi * 2 // Конечное значение угла (полный оборот)
-    rotationAnimation.duration = 4 // Длительность анимации в секундах для полного оборота
+    rotationAnimation.duration = CFTimeInterval(1.0 / rotationSpeed) // Применяем загруженную скорость
     rotationAnimation.repeatCount = .infinity // Анимация будет повторяться бесконечно
     
     layer.add(rotationAnimation, forKey: "rotationAnimation")
   }
 
   
-
   // Метод, вызываемый для анимации Screen Saver
   override func animateOneFrame() {
     super.animateOneFrame()
 
     setNeedsDisplay(bounds) // Перерисовка для обновления содержимого
   }
-
 }
