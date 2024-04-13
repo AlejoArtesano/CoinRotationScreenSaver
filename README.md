@@ -20,5 +20,5 @@
 
 6. Следуйте инструкциям для установки Screen Saver в вашу систему.
 
-   После установки `CoinRotationScreenSaver` будет доступен в настройках системы в разделе: 
+После установки `CoinRotationScreenSaver` будет доступен в настройках системы в разделе: 
    `System Preferences -> Desktop & Screen Saver -> Tab Screen Saver`.
