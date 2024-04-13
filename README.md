@@ -7,15 +7,14 @@
 
 1. Клонируйте репозиторий, используя команду:
 
- ```git clone https://github.com/AlejoArtesano/CoinRotationScreenSaver.git ```
+    ```git clone https://github.com/AlejoArtesano/CoinRotationScreenSaver.git ```
 
 2. Откройте склонированный проект в Xcode.
 
 3. Для сборки проекта выберите в Xcode пункт меню `Product -> Build`.
 
 4. После успешной сборки перейдите в `Product -> Show Build Folder in Finder`. 
-
-В открывшемся окне Finder найдите путь `Products/Debug/CoinRotationScreenSaver.saver`.
+    В открывшемся окне Finder найдите путь `Products/Debug/CoinRotationScreenSaver.saver`.
 
 5. Дважды кликните по файлу `CoinRotationScreenSaver.saver` для начала процесса установки.
 
@@ -24,4 +23,4 @@
 
 После установки `CoinRotationScreenSaver` будет доступен в настройках системы в разделе: 
 
-`System Preferences -> Desktop & Screen Saver -> Tab Screen Saver`.
+   `System Preferences -> Desktop & Screen Saver -> Tab Screen Saver`.
